@@ -2,15 +2,18 @@
 
 {% block main %}
   <h1>All Properties</h1>
-  <ul>
+  <div class="card-container">
     {% for property in properties %}
-      <div class="image-item">
-        <img src="{{url_for('get_image', filename=property.photo) }}" alt="Uploaded Image"/>
+      <div class="card">
+        <img src="{{ url_for('get_image', filename=property.photo) }}" alt="Uploaded Image" style="width: 100%;height: 300px;" />
+        <div id="info">
+          <h2 class="property-title">{{ property.title }}</h2>
+          <p class="property-location">{{ property.location }}</p>
+          <p class="property-price">${{ property.price }}</p>
+        </div>
+        <a href="{{url_for ('view_property', propertyid=property.photo)}}"><button class="view-property-button"type="submit">View Property</button></a>
       </div>
-      <li>{{ property.title }} - {{ property.location }} - ${{ property.price }}</li>
-  </ul>
-  <div class="buttons_container"> 
-    <a href="{{url_for ('view_property', propertyid=property.photo)}}"><button type="submit">View Property</button></a>
+    {% endfor %}
   </div>
-  {% endfor %}
 {% endblock %}
+

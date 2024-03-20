@@ -1,32 +1,44 @@
 {% extends "base.html" %}
 {% block main %}
-    <h1>Create Property</h1>
+    <h1 id="addprop">Add New Property</h1>
     <form method="POST" enctype="multipart/form-data">
         {{ form.hidden_tag() }}
-        <div>
-            {{ form.title.label }}: {{ form.title }}
+        <div class="field-group">
+            <div class="field-column">
+                {{ form.title.label }} {{ form.title }}
+            </div>
         </div>
-        <div>
-            {{ form.description.label }}: {{ form.description }}
+        <div class="field-group">
+            <div class="field-column">
+                {{ form.description.label }} {{ form.description }}
+            </div>
         </div>
-        <div>
-            {{ form.bedrooms.label }}: {{ form.bedrooms }}
+        <div class="field-group">
+            <div class="field-column">
+                {{ form.bedrooms.label }} {{ form.bedrooms }}
+            </div>
+            <div class="field-column">
+                {{ form.bathrooms.label }} {{ form.bathrooms }}
+            </div>
         </div>
-        <div>
-            {{ form.bathrooms.label }}: {{ form.bathrooms }}
+        <div class="field-group">
+            <div class="field-column">
+                {{ form.price.label }} {{ form.price }}
+            </div>
+            <div class="field-column">
+                {{ form.property_type.label }} {{ form.property_type }}
+            </div>
         </div>
-        <div>
-            {{ form.location.label }}: {{ form.location }}
+        <div class="field-group">
+            <div class="field-column">
+                {{ form.location.label }} {{ form.location }}
+            </div>
         </div>
-        <div>
-            {{ form.price.label }}: {{ form.price }}
+        <div class="field-group">
+            <div class="field-column">
+                {{ form.photo.label }} {{ form.photo }}
+            </div>
         </div>
-        <div>
-            {{ form.property_type.label }}: {{ form.property_type }}
-        </div>
-        <div>
-            {{ form.photo.label }}: {{ form.photo }}
-        </div>
-        <button type="submit">Submit</button>
+        <button type="submit">Add Property</button>
     </form>
 {% endblock %}
